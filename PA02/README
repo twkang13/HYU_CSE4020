@@ -1,0 +1,58 @@
+## Computer Graphics PA02 : 2021025205 Taewook Kang ##
+
+>> UI for control point specification
+
+onMouseButton():
+    * If the cursor clicked on the cow, set the cursor fixed on the cow.
+    * Save all the positions of the contol points.
+
+onMouseClick():
+    * If the cursor clicked on the ground, set the cursor free.
+
+onMouseDrag():
+    * If the cursor clicked on the ground, set the cursor free.
+
+display():
+    * Draw all the cows in cowPosition if the number of click is less then 6.
+    * Draw the cow rollercoster if the number of click is 6.
+    * If the cow rollercoaster is finished, initialize the number of click and cowPosition to get new control points.
+
+
+>> vertical dragging
+
+onMouseDrag():
+    * create a dragging plane perpendicular to the ray direction (x-axis).
+    * Set a Y which only has a change of vertical position value.
+    * Set a T with translation matrix Y.
+    * Apply the change of vertical position to cow2wld with T.
+
+
+>> cyclic B-spline curve
+
+display():
+    * Get four control points by using the time that the cow has been rollercoaster.
+    * Save the result of bSpline to cowPosition.
+
+bSpline():
+    * Calculate the position of the cow with the given control points.
+    * Implemented by using cubic B-spline curve.
+
+
+>> Rotation
+
+display():
+    * Get the rotation angle by using the translation value 
+    * of cow2wld (previous cow position) and cowMatrix (current cow position).
+    * Save the result of rotation to cow2wld.
+
+getEulerAngle():
+    * Calculate the rotation angle by using the translation value
+
+    * Set yaw by using the arctan2 function with argument x, z.
+    * Decrement yaw by 90 degrees to make the cow face the z-axis.
+    * Set rotation matrix with yaw.
+
+    * Set pitch by using the arctan2 function with argument x, y, z
+    * Set rotation matrix with pitch.
+
+    * return the result of yaw and pitch.
